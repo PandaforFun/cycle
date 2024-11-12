@@ -1,35 +1,30 @@
 // Program to demonstrate inheritance, final, and abstract classes
-class GrandFather {
-    String strength = "Strong";
-    public void showGrandFather() {
-        System.out.println("Grandfather's skill: " + strength);
+abstract class Animal {
+    abstract void sound();
+    public void eat() {
+        System.out.println("Eating...");
     }
 }
 
-class Father extends GrandFather {
-    String wisdom = "Wise";
-    public void showFather() {
-        System.out.println("Father's skill: " + wisdom);
-    }
+abstract class Bird extends Animal {
+    abstract void fly();
 }
 
-final class Me extends Father {
-    String curiosity = "Curious";
-    public void showMe() {
-        System.out.println("My skill: " + curiosity);
+final class Sparrow extends Bird {
+    void sound() {
+        System.out.println("Chirp Chirp");
     }
     
-    public void showAllSkills() {
-        System.out.println("Inherited skills: " + strength + ", " + wisdom + ", " + curiosity);
+    void fly() {
+        System.out.println("Flying high");
     }
 }
 
-public class inheritance_final_abstract {
+class Main {
     public static void main(String[] args) {
-        Me me = new Me();
-        me.showGrandFather();
-        me.showFather();
-        me.showMe();
-        me.showAllSkills();
+        Sparrow sparrow = new Sparrow();
+        sparrow.eat();
+        sparrow.sound();
+        sparrow.fly();
     }
 }
